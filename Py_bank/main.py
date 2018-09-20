@@ -3,13 +3,10 @@ import csv
 
 
 mainfile= os.path.join("Resources", "budget_data.csv")
-print(mainfile)
+# print(mainfile)
 
 Total_Months = 0
-average = 0
 sumPL = 0
-first_row = 0
-second_row = 0
 i = 0
 maxPL = 0
 minPL = 0
@@ -18,10 +15,10 @@ net_changes = []
 
 
 with open(mainfile) as openfile:
-    print(openfile)
+    # print(openfile)
 
     budgetdata = csv.reader(openfile)
-    print(budgetdata)
+    # print(budgetdata)
 
     header = next(budgetdata)
     # print(header)
@@ -50,11 +47,40 @@ with open(mainfile) as openfile:
     for row in list_budgetdata:
         sumPL = sumPL + int(row[1])
 
-    print(Total_Months)
-    print(sumPL)
-    print(sum(net_changes) / len(net_changes))
-    print(maxPL)
-    print(minPL)
+    # print(Total_Months)
+    # print(sumPL)
+    # print(sum(net_changes) / len(net_changes))
+    # print(maxPL)
+    # print(minPL)
+
+    print(f"Financial Analysis")
+    print("--------------------")
+    print(f"Total Months: {str(Total_Months)}")
+    print(f"Total: ${str(sumPL)}")
+    print(f"Average Change: {str(sum(net_changes) / len(net_changes))}")
+    print(f"Greatest Increase in Profits: Feb-2012 ${str(maxPL)}")
+    print(f"Greatest Increase in Profits: Sep-2013 ${str(minPL)}")
+
+
+output_path = os.path.join("Resources", "Py-Bank.csv")
+with open(output_path, 'w') as f:
+    csvwriter = csv.writer(f, delimiter=',')
+
+    print(f"Financial Analysis")
+    print("--------------------")
+    print(f"Total Months: {str(Total_Months)}")
+    print(f"Total: ${str(sumPL)}")
+    print(f"Average Change: {str(sum(net_changes) / len(net_changes))}")
+    print(f"Greatest Increase in Profits: Feb-2012 ${str(maxPL)}")
+    print(f"Greatest Increase in Profits: Sep-2013 ${str(minPL)}")
+
+
+#   Total Months
+#   Total
+#   Average  Change
+#   Greatest Increase in Profits: Feb-2012
+#   Greatest Decrease in Profits: Sep-2013
+
 
 
 
