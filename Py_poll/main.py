@@ -42,8 +42,14 @@ with open(mainfile) as openfile:
     print(f"Candidates: {str(candidates)}")
     # print(f"Win Percent:{str(win_percent)}")
 
+output_path = os.path.join("Resources", "Py-Poll.csv")
+with open(output_path, 'w') as f:
+    text_file = ("Output.txt", "w")
 
-
+    f.write(f"Election Results\n")
+    f.write("--------------------\n")
+    f.write(f"Total Votes: {str(Total_Votes)}\n")
+   
     
 # The total number of votes cast
 # A complete list of candidates who received votes
